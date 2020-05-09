@@ -14,4 +14,8 @@ coming soon...
 
 ## License
 
+<<<<<<< HEAD
 * MIT
+=======
+* MIT
+>>>>>>> ab0900e882cf53266f4b2667b67962c38451019a
