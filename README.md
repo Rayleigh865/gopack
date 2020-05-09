@@ -1,4 +1,4 @@
-![Go](https://github.com/Rayleigh865/gopack/workflows/Go/badge.svg?branch=master)
+[![][workflow-badge]][workflow-link]
 
 # gopack
 
@@ -18,3 +18,6 @@ coming soon...
 
 * MIT
 
+
+[workflow-link]:    https://github.com/Rayleigh865/gopack/actions?query=workflow%3AGo
+[workflow-badge]:   https://github.com/Rayleigh865/gopack/workflows/Go/badge.svg?branch=master
