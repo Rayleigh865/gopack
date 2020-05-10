@@ -19,8 +19,8 @@ type testData struct {
 
 func TestPack(t *testing.T) {
 	testCase := []testData{
+		// first test
 		{
-			// first test
 			bins: []*Bin{
 				NewBin("Small Bin", 100, 100),
 			},
@@ -41,7 +41,6 @@ func TestPack(t *testing.T) {
 		},
 		//second test
 		{
-			// first test
 			bins: []*Bin{
 				NewBin("Small Bin", 100, 100),
 			},
@@ -60,6 +59,44 @@ func TestPack(t *testing.T) {
 							{"Item 2", 10, 5, RotationType_WH, Pivot{20, 0}},
 							{"Item 4", 5, 5, RotationType_WH, Pivot{30, 0}},
 							{"Item 1", 2, 2, RotationType_WH, Pivot{35, 0}},
+						},
+					},
+				},
+				unpacked: []*Item{},
+			},
+		},
+		//third test
+		{
+			bins: []*Bin{
+				NewBin("Bin 1", 100, 100),
+				NewBin("Bin 2", 100, 100),
+			},
+			items: []*Item{
+				NewItem("Item 1", 25, 30),
+				NewItem("Item 2", 10, 5),
+				NewItem("Item 3", 20, 10),
+				NewItem("Item 4", 40, 20),
+				NewItem("Item 5", 50, 50),
+				NewItem("Item 6", 25, 30),
+				NewItem("Item 7", 80, 80),
+			},
+			expectation: result{
+				packed: []*Bin{
+					{
+						"Bin 1", 100, 100,
+						[]*Item{
+							{"Item 7", 80, 80, RotationType_WH, Pivot{0, 0}},
+							{"Item 4", 40, 20, RotationType_HW, Pivot{80, 0}},
+							{"Item 3", 20, 10, RotationType_WH, Pivot{0, 80}},
+							{"Item 2", 10, 5, RotationType_WH, Pivot{20, 80}},
+						},
+					},
+					{
+						"Bin 2", 100, 100,
+						[]*Item{
+							{"Item 5", 50, 50, RotationType_WH, Pivot{0, 0}},
+							{"Item 6", 25, 30, RotationType_WH, Pivot{50, 0}},
+							{"Item 1", 25, 30, RotationType_WH, Pivot{75, 0}},
 						},
 					},
 				},
